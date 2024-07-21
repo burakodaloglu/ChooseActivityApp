@@ -7,16 +7,15 @@ class ToDoService {
   ToDoService(this.networkManager);
 
   Future<List<TodoModel>> fetchToDoItems() async {
-    final response = await networkManager.send(ServicePath.todo.path,
+    final response = await networkManager.send<TodoModel,List<TodoModel>>(ServicePath.todo.path,
         parseModel: TodoModel(), method: RequestType.GET);
     return response.data ?? [];
   }
 }
 
 enum ServicePath {
-  todo('todo.json');
+  todo('products');
 
   final String path;
-
   const ServicePath(this.path);
 }

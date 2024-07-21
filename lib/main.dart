@@ -1,4 +1,5 @@
 import 'package:choose_activity_app/todo/view/todo_view.dart';
+import 'package:choose_activity_app/todo/view/todo_view2.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.dark(),
         useMaterial3: true,
       ),
-      home: const TodoView(),
+      home: const TodoView2(),
     );
   }
 }

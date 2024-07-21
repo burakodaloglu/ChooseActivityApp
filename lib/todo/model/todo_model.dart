@@ -1,19 +1,18 @@
-import 'dart:html';
 import 'package:vexana/vexana.dart';
 
 class TodoModel extends INetworkModel<TodoModel> {
-  String? imageUrl;
+  String? image;
   String? title;
 
   TodoModel({
-    this.imageUrl,
+    this.image,
     this.title,
   });
 
   @override
   Map<String, dynamic>? toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    data['imageUrl'] = imageUrl;
+    data['image'] = image;
     data['title'] = title;
 
     return data;
@@ -23,15 +22,17 @@ class TodoModel extends INetworkModel<TodoModel> {
   TodoModel fromJson(Map<String, dynamic> json) => TodoModel.fromJson(json);
 
   TodoModel copyWith({
-    String? imageUrl,
+    String? image,
     String? title,
   }) {
     return TodoModel(
-        imageUrl: imageUrl ?? this.imageUrl, title: title ?? this.title);
+        image: image ?? this.image,
+        title: title ?? this.title
+    );
   }
 
   TodoModel.fromJson(Map<String, dynamic> json) {
-    imageUrl = json['imageUrl'];
+    image = json['image'];
     title = json['title'];
   }
 }
